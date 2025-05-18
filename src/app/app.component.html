@@ -1,12 +1,17 @@
 <app-header></app-header>
 <h2>Roll the Dice Once</h2>
-<p>
-  <img [ngSrc]="imageSrc(diceValue)" alt="side {{diceValue}}}" width="100" height="100">
-</p>
-<p>
-  <button (click)="onRoll()">Roll</button>
-</p>
-<p>
+@if(rollData != undefined) {
+  <p>
+    @for (value of rollData.values; track $index) {
+      <img [ngSrc]="imageSrc(value)" alt="side {{value}}" width="100" height="100">
+    }
+  </p>
 
+  <p>
+    Total: {{rollData.total}}
+  </p>
+}
+<p>
+  <button (click) = "onRoll()">Roll</button>
 </p>
 <app-footer name="Applied Computing"></app-footer>

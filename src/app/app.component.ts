@@ -3,19 +3,21 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {NgOptimizedImage} from '@angular/common';
 import {RollData} from './roll-data';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   imports: [
     HeaderComponent,
     FooterComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
+    FormsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  diceValue: number = 6;
+  numberOfDice: number = 6;
   rollData: RollData | undefined;
   private getRandomDiceValue() : number {
     return 1 + Math.floor(6 * Math.random());
@@ -39,7 +41,7 @@ export class AppComponent {
   }
 
   onRoll() {
-    this.rollData = this.getRollData(3);
+    this.rollData = this.getRollData(this.numberOfDice);
   }
 
   imageSrc(value: number): string {

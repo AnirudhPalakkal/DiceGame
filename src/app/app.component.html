@@ -12,6 +12,16 @@
   </p>
 }
 <p>
+  <label>Number of Dice: </label>
+  <select [(ngModel)] = "numberOfDice">
+    <option [value]="1">1</option>
+    <option [value]="2">2</option>
+    <option [value]="3">3</option>
+    <option [value]="4">4</option>
+    <option [value]="5">5</option>
+  </select>
+</p>
+<p>
   <button (click) = "onRoll()">Roll</button>
 </p>
 <app-footer name="Applied Computing"></app-footer>
